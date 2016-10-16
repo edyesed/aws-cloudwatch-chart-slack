@@ -6,7 +6,8 @@ var fetch = require("node-fetch");
 var FormData = require("form-data");
 var util = require("util");
 
-function upload(channel, path) {
+//function upload(channel, path) {
+function upload("@ed", path) {
   console.log("110 path " + util.inspect(path) + "\n");
   console.log("111 channel " + util.inspect(channel) + "\n");
   return new Promise(function (resolve, reject) {
