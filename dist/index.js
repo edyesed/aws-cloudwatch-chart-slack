@@ -18,14 +18,18 @@ var _procGenChart = require("./proc-gen-chart.js");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function unlink(path) {
+  console.log("unlink(path)) called");
   return new Promise(function (resolve, reject) {
+    console.log("Promise unlink(path)) called");
     return _fs2.default.unlink(path, function (err) {
+      console.log("Promise _fs2 unlink(path)) called");
       return err ? reject(err) : resolve(path);
     });
   });
 }
 
 function post(channel, args, callback) {
+  console.log("post(" + channel + ") called");
   var cb_ok = callback || function (err, data) {
     return console.log(data);
   };

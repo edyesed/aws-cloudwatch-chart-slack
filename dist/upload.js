@@ -4,12 +4,17 @@
 var fs = require("fs");
 var fetch = require("node-fetch");
 var FormData = require("form-data");
+var util = require("util");
 
 function upload(channel, path) {
+  console.log("110 path " + util.inspect(path) + "\n");
+  console.log("111 channel " + util.inspect(channel) + "\n");
   return new Promise(function (resolve, reject) {
     var form = new FormData();
     form.append("channels", channel);
+    console.log("111 formdata " + util.inspect(form) + "\n");
     form.append("token", process.env.SLACK_API_TOKEN);
+    console.log("112 formdata " + util.inspect(form) + "\n");
     //form.append("file", fs.createReadStream(path));  //NOTE: This became to fail somehow suddenly... https://github.com/form-data/form-data#notes
     var buf = fs.readFileSync(path);
     form.append("file", buf, {
